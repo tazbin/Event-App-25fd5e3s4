@@ -1,0 +1,33 @@
+<form class="form-inline pt-5">
+    <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control" [(ngModel)]="newEvent.name" name="eventName" placeholder="Event name">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control" [(ngModel)]="newEvent.description" name="evenetDescription" placeholder="Event description">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control" [(ngModel)]="newEvent.date" name="eventDate" placeholder="Event date">
+    </div>
+    <button type="submit" class="btn btn-success mb-2" (click)="addEvent()">Add this event</button>
+</form>
+<hr>
+<div class="alert alert-primary" *ngIf="outputEvents.events == ''" role="alert">
+    <b>Opps! </b> You havn't added any events yet
+</div>
+<div class="alert alert-primary" *ngIf="isAdded" role="alert">
+    <b>SUCCESS! </b> {{isAdded.message | json}}
+</div>
+<div class="row pt-5">
+    <div class="col-md-3 pb-3" *ngFor="let event of outputEvents.events">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">{{event.name}}</h5>
+                <p class="card-text">{{event.description}}</p>
+                <a href="#" class="btn btn-primary">Buy Ticket</a>
+            </div>
+            <div class="card-footer text-muted">
+                {{event.date}}
+            </div>
+        </div>
+    </div>
+</div>

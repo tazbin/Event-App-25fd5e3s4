@@ -1,0 +1,18 @@
+<div class="row pt-5">
+    <div class="col-md-3 pb-3" *ngFor="let event of allSpecialEvents">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">{{event.name}}</h5>
+                <p class="card-text">{{event.description}}</p>
+                <a href="#" class="btn btn-success">Buy Ticket</a>
+            </div>
+            <div class="card-footer text-muted">
+                {{event.date}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="error">
+    <b>500 Bad Request!</b> Error in connection!
+</div>
